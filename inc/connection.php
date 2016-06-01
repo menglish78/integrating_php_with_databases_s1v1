@@ -5,8 +5,6 @@ try {
   $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
   echo "Unable to connect";
-  echo $e->getMessage();
+  // echo $e->getMessage();
   exit;
 }
-
-echo "Connected to the database";

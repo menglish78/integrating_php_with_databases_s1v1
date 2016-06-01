@@ -1,6 +1,6 @@
-<?php 
-include("inc/data.php");
+<?php
 include("inc/functions.php");
+$catalog = full_catalog_array();
 
 $pageTitle = "Personal Media Library";
 $section = null;
@@ -18,7 +18,7 @@ include("inc/header.php"); ?>
             foreach ($random as $id) {
                 echo get_item_html($id,$catalog[$id]);
             }
-            ?>							
+            ?>
 				</ul>
 
 			</div>

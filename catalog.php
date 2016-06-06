@@ -52,10 +52,25 @@ $offset = ($current_page - 1) * $items_per_page;
 
 
 if (empty($section)) {
-  $catalog = full_catalog_array();
+  $catalog = full_catalog_array($items_per_page,$offset);
 } else {
-  $catalog = category_catalog_array($section);
+  $catalog = category_catalog_array($section,$items_per_page,$offset);
 }
+
+$pagination = "<div class=\"pagination\">";
+$pagination .= "Pages: ";
+for ($i = 1;$i <= $total_pages;$i++) {
+    if ($i == $current_page) {
+      $pagination .= " <span>$i</span>";
+    } else {
+      $pagination .= " <a href='catalog.php?";
+      if (!empty($section)) {
+        $pagination .= "cat=".$section."&";
+      }
+      $pagination .= "pg=$i'>$i</a>";
+    }
+  }
+$pagination .= "</div>";
 
 include("inc/header.php"); ?>
 
@@ -68,7 +83,7 @@ include("inc/header.php"); ?>
             echo "<a href='catalog.php'>Full Catalog</a> &gt; ";
         }
         echo $pageTitle; ?></h1>
-
+        <?php echo $pagination; ?>
         <ul class="items">
             <?php
             foreach ($catalog as $item) {
@@ -76,7 +91,7 @@ include("inc/header.php"); ?>
             }
             ?>
         </ul>
-
+        <?php echo $pagination; ?>
     </div>
 </div>
 

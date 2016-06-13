@@ -697,3 +697,14 @@ form input[type="submit"] {
 .footer a {text-decoration: none; color: #539def; margin: 0 10px;}
 .footer li:first-child a {margin-left: 4px;}
 .footer a:hover, .footer a:active {text-decoration: underline;}
+
+.search form
+{
+    margin: 10px 0 10px auto;
+    width: 300px;
+}
+.search form input[type="submit"]
+{
+    padding: 6px;
+    width: auto;
+}
